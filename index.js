@@ -35,9 +35,9 @@ function getJson(url, params, headers, cb) {
     cb = cb || function () { };
     if (params)
         url += '?' + qs.stringify(params)
-    
+
     headers['User-Agent'] = FAKE_USER_AGENT;
-    
+
     // rejectUnauthorized:false should be ok here since we are working with localhost
     // this fixes the UNABLE_TO_VERIFY_LEAF_SIGNATURE error
     request({ 'url': url, 'headers': headers, 'rejectUnauthorized' : false}, function (err, req, body) {
@@ -61,7 +61,7 @@ var ASCII_LOWER_CASE = "abcdefghijklmnopqrstuvwxyz";
 // http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
 function generateRandomString(length) {
     var text = "";
-    
+
     for( var i=0; i < 10; i++ )
         text += ASCII_LOWER_CASE.charAt(Math.floor(Math.random() * ASCII_LOWER_CASE.length));
 
@@ -155,7 +155,7 @@ function SpotifyWebHelper(opts) {
     var localPort = opts.port || DEFAULT_PORT;
 
     function generateSpotifyUrl(url) {
-        return util.format("https://%s:%d%s", generateRandomLocalHostName(), localPort, url)
+        return util.format("http://%s:%d%s", generateRandomLocalHostName(), localPort, url)
     }
 
 
@@ -184,7 +184,7 @@ function SpotifyWebHelper(opts) {
         if (self.isInitialized) {
             return cb();
         }
-        
+
         launchSpotifyWebhelperIfNeeded(function (err, res) {
           if (err) {
             return cb(err);
