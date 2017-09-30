@@ -12,7 +12,7 @@ var wintools;
 var spotifyWebHelperWinProcRegex;
 
 // Default port that Spotify Web Helper binds to.
-var DEFAULT_PORT = 4370;
+var DEFAULT_PORT = 4381;
 var DEFAULT_RETURN_ON = ['login', 'logout', 'play', 'pause', 'error', 'ap']
 var DEFAULT_RETURN_AFTER = 1
 var ORIGIN_HEADER = { 'Origin': 'https://open.spotify.com' }
